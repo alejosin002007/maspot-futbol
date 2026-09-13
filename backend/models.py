@@ -8,8 +8,8 @@ class Noticia(Base):
     titulo = Column(String, index=True)
     resumen = Column(String)
     link = Column(String, unique=True, index=True)
-    disciplina = Column(String)
-    fecha = Column(String)
+    disciplina = Column(String, index=True)
+    fecha = Column(String, index=True)
     imagen_url = Column(String, nullable=True)
 
 class Usuario(Base):

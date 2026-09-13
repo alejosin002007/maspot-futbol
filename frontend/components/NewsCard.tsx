@@ -59,7 +59,13 @@ export default function NewsCard({ item, defaultSaved = false }: { item: any, de
 
         <div className="aspect-video bg-gray-100 dark:bg-gray-700 w-full relative overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
+          <img 
+            src={item.img} 
+            alt={item.title} 
+            loading="lazy" 
+            decoding="async" 
+            className="w-full h-full object-cover group-hover:scale-110 transition duration-700" 
+          />
         </div>
         <div className="p-4 flex flex-col flex-1">
           <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-black uppercase tracking-widest mb-2">{item.category}</div>

@@ -31,6 +31,7 @@ export default function Sidebar() {
     <>
       {/* Botón flotante hamburguesa para móvil */}
       <button 
+        aria-label="Abrir menú"
         className="md:hidden fixed bottom-6 right-6 z-50 bg-emerald-600 text-white p-4 rounded-full shadow-2xl flex items-center justify-center"
         onClick={() => setIsOpen(!isOpen)}
       >

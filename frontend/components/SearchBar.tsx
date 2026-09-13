@@ -32,7 +32,8 @@ export default function SearchBar() {
         type="text" 
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        placeholder="Buscar..." 
+        placeholder="Buscar..."
+        aria-label="Buscar noticias" 
         className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-full pl-11 pr-4 py-2 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all shadow-sm"
       />
     </form>

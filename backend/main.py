@@ -88,7 +88,7 @@ def obtener_noticias(q: Optional[str] = None, disciplina: Optional[str] = None, 
         query = query.filter((models.Noticia.titulo.ilike(f"%{q}%")) | (models.Noticia.resumen.ilike(f"%{q}%")))
 
     # Ordenamos estrictamente por fecha descendente para que aparezcan cronológicamente
-    noticias_db = query.order_by(models.Noticia.fecha.desc()).limit(600).all()
+    noticias_db = query.order_by(models.Noticia.fecha.desc()).limit(250).all()
 
     formatted_news = []
     for n in noticias_db:
