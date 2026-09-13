@@ -134,7 +134,7 @@ export default function MatchSlider({ initialMatches, selectedCategory, currentD
               </div>
                 <div className="p-5 flex justify-between items-center flex-1">
                   <div className="flex flex-col items-center w-1/3">
-                    {match.logoA ? <img src={match.logoA} alt={match.teamA} loading="lazy" decoding="async" className="w-12 h-12 object-contain mb-2 drop-shadow-sm" /> : <div className="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-full mb-2"></div>}
+                    {match.logoA ? <img src={match.logoA} alt={match.teamA} loading="lazy" decoding="async" className="w-12 h-12 object-contain mb-2 drop-shadow-sm dark:bg-white/90 dark:p-1 dark:rounded-full" /> : <div className="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-full mb-2"></div>}
                     <span className="font-semibold text-sm text-center dark:text-white line-clamp-2 leading-tight">{match.teamA}</span>
                   </div>
                   <div className="flex flex-col items-center justify-center w-1/3 px-2">
@@ -143,7 +143,7 @@ export default function MatchSlider({ initialMatches, selectedCategory, currentD
                     </span>
                   </div>
                   <div className="flex flex-col items-center w-1/3">
-                    {match.logoB ? <img src={match.logoB} alt={match.teamB} loading="lazy" decoding="async" className="w-12 h-12 object-contain mb-2 drop-shadow-sm" /> : <div className="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-full mb-2"></div>}
+                    {match.logoB ? <img src={match.logoB} alt={match.teamB} loading="lazy" decoding="async" className="w-12 h-12 object-contain mb-2 drop-shadow-sm dark:bg-white/90 dark:p-1 dark:rounded-full" /> : <div className="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-full mb-2"></div>}
                     <span className="font-semibold text-sm text-center dark:text-white line-clamp-2 leading-tight">{match.teamB}</span>
                   </div>
                 </div>
