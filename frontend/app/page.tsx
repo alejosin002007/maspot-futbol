@@ -4,6 +4,7 @@ import MatchSlider from "@/components/MatchSlider";
 import React from "react";
 
 import NewsGrid from "@/components/NewsGrid";
+import RefreshButton from "@/components/RefreshButton";
 
 export const dynamic = 'force-dynamic';
 
@@ -42,6 +43,8 @@ export default async function Home({ searchParams }: { searchParams: { disciplin
 
   const rawMatches = await fetchBackend(resultadosUrl, fallbackMatches);
   const rawNews = await fetchBackend(noticiasUrl, fallbackNews);
+
+  const isWakingUp = rawNews === fallbackNews || (rawNews.length > 0 && rawNews[0].category === "Sistema");
 
   // Normalizamos las propiedades porque el backend las envía en español (titulo, encuentro, resultado) 
   // y nuestro componente UI las espera en inglés (title, teamA, teamB, score)
@@ -128,12 +131,22 @@ export default async function Home({ searchParams }: { searchParams: { disciplin
       {/* Grid de Noticias */}
       <section>
         <h2 className="text-2xl font-bold mb-8 dark:text-white">Últimas Noticias</h2>
-        {news.length > 0 ? (
+        {isWakingUp ? (
+          <div className="w-full py-20 flex flex-col items-center justify-center text-center px-4 bg-white dark:bg-black rounded-2xl shadow-sm border border-gray-200 dark:border-[#144a2d]">
+            <div className="animate-spin rounded-full h-14 w-14 border-t-2 border-b-2 border-emerald-500 mb-6"></div>
+            <h3 className="text-2xl font-black text-gray-800 dark:text-gray-100 mb-2">Despertando al servidor...</h3>
+            <p className="text-gray-500 dark:text-gray-400 max-w-md text-lg">
+              El servidor se pone a dormir cuando nadie lo usa. Tarda unos <strong>50 segundos</strong> en arrancar. Por favor, dale al botón para intentarlo de nuevo.
+            </p>
+            <RefreshButton />
+          </div>
+        ) : news.length > 0 ? (
           <NewsGrid initialNews={news} />
         ) : (
-          <div className="w-full py-16 flex flex-col items-center justify-center bg-white dark:bg-black rounded-2xl shadow-sm border border-gray-200 dark:border-[#144a2d]">
+          <div className="w-full py-16 flex flex-col items-center justify-center text-center bg-white dark:bg-black rounded-2xl shadow-sm border border-gray-200 dark:border-[#144a2d]">
             <h3 className="text-xl font-semibold text-gray-600 dark:text-gray-300 mb-2">No se encontraron noticias</h3>
             <p className="text-gray-400 dark:text-gray-500">Intenta buscar otra palabra o selecciona otra categoría.</p>
+            <RefreshButton />
           </div>
         )}
       </section>
