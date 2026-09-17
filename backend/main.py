@@ -231,10 +231,7 @@ async def obtener_resultados(date: Optional[str] = None):
 @app.get("/api/clasificacion")
 async def obtener_clasificacion(liga: str = "eng.1", jornada: int = 0):
     url_standings = f"https://site.api.espn.com/apis/v2/sports/soccer/{liga}/standings"
-    if liga in ["arg.1", "bra.1", "usa.1", "conmebol.libertadores", "conmebol.sudamericana"]:
-        url_scoreboard = f"https://site.api.espn.com/apis/site/v2/sports/soccer/{liga}/scoreboard?dates=20260101-20261231&limit=450"
-    else:
-        url_scoreboard = f"https://site.api.espn.com/apis/site/v2/sports/soccer/{liga}/scoreboard?dates=20260701-20270630&limit=450"
+    url_scoreboard = f"https://site.api.espn.com/apis/site/v2/sports/soccer/{liga}/scoreboard?dates=2026&limit=450"
     url_stats = f"https://site.api.espn.com/apis/site/v2/sports/soccer/{liga}/statistics"
     
     posiciones = []
