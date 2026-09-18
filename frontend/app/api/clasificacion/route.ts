@@ -23,7 +23,7 @@ export async function GET(request: Request) {
     if (liga.includes("ger")) total_jornadas = 34;
 
     let matches_per_jornada = 10;
-    const grupos = [];
+    const grupos: any[] = [];
     
     // Parse Standings
     if (res_std?.children?.length > 0) {
@@ -185,7 +185,7 @@ export async function GET(request: Request) {
     });
 
     // Parse Stats
-    const estadisticas = [];
+    const estadisticas: any[] = [];
     if (res_sts?.stats?.length > 0) {
       res_sts.stats.forEach((stat_cat: any) => {
         let cat_name = stat_cat.displayName || "";
