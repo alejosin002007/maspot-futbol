@@ -210,7 +210,7 @@ export async function GET(request: Request) {
 
     return NextResponse.json({
       liga_nombre: res_std?.name || "Liga",
-      jornada_actual: jornada,
+      jornada: `FECHA ${jornada}`,
       total_jornadas: total_jornadas,
       grupos: grupos,
       partidos: partidos,
